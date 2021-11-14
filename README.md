@@ -3,7 +3,7 @@
 ## User Story
 
 ### As a third line support engineer
-### I want to be able to go to server class that throws an exception reported by a client
+### I want to be able to go to the server class that throws an exception reported by a client
 ### So that I do not need to look for the stack trace in the server logs
 
 ## Example 
@@ -32,12 +32,14 @@ This results in the following being reported by the second level support agent m
 
     [Error occurred while processing the scan response : response code: 401 response body: Invalid JWT token. Error accessing publickey Api]:
 
-What we, as Third Line Support, want is to know which server class throw the exception, 
+What we, as Third Line Support, want is to know which server class throws the exception, 
 ideally without grepping the code base or opening the server logs.
+
+A better Exception message would be: 
 
     [Problem with scan response: status code: 401, body: com.corp.server.validation.JwtValidator line 72: JWT token Exception: Error accessing Public Key API]
 
-This is the motivation for the StackAwareException which is a wrapper exception 
+This is the motivation for the StackAwareException, a wrapper exception 
 which adds the class, method 
-and line number of the first element of wrapped exception's stack trace. 
+and line number of the first element of the wrapped exception's stack trace. 
 
