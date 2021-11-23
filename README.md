@@ -37,7 +37,7 @@ ideally without grepping the code base or opening the server logs.
 
 A better Exception message would be: 
 
-    [Problem with scan response: status code: 401, body: com.corp.server.validation.JwtValidator line 72: JWT token Exception: Error accessing Public Key API]
+    [Problem with scan response: status code: 401, body: com.corp.server.validation.JwtValidator.validate() line 72: JWT token Exception: Error accessing Public Key API]
 
 This is the motivation for the StackAwareException, a wrapper exception 
 which adds the class, method 
